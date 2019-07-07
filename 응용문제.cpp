@@ -1,22 +1,63 @@
-ï»¿#include "pch.h"
+//setÀ¸·Î ÆÀ ±¸¼º.. ÇÑ ¸í¾¿ ÇÊ¿ä, µğÀÚÀÌ³Ê, ÇÁ·Î±×·¡¸Ó, DB°ü¸®ÀÚ ¸ñ·Ï ÇÁ¸°Æ®
+//¾îÁ¦, ¿À´Ã »ê ¿ìÀ¯ ³ÃÀå°í¿¡.. »óÇÑ¿ìÀ¯+½Ì½Ì¿ìÀ¯. ¾îÁ¦ ¿ìÀ¯ ¸ÔÀ½ ³²Àº ¿ìÀ¯ ÀÌ¸§ ÇÁ¸°Æ®
+//1µî ¹Ú½ºÅ°, 2µî ¼Û½ºÅ°, 3µî ±è½ºÅ°, 4µî Á¤½ºÅ°ÀÎµ¥ ¹İÄ¢ Å»¶ô
+//½ºÅ°´ëÈ¸ ½Ã»óÀÚ ¸ñ·Ï ÇÁ¸°Æ®
+//ÈŞ´ëÆù ´ÜÃàÅ° ÀüÃ¼ ¸®½ºÆ® ÇÁ¸°Æ®
+#include "pch.h"
 #include <iostream>
 #include <string>
-#include <fstream>
+#include <set>
+#include <list>
+#include <map>
 using namespace std;
 
 int main()
 {
-	string name;
-	int age;
-	string sex;
-	
-	cout << "ì´ë¦„ê³¼ ë‚˜ì´, ì„±ë³„ì„ ì…ë ¥í•˜ì„¸ìš”: ";
-	cin >> name >> age >> sex ;
+	set<string> team;
+	team.insert("µğÀÚÀÌ³Ê");
+	team.insert("ÇÁ·Î±×·¡¸Ó");
+	team.insert("DB°ü¸®ÀÚ");
 
-	ofstream os{ "c:/temp/0629.txt" }; //ìƒì„±ìì— ì…ë ¥ê°’ ë„£ì–´ì£¼ëŠ” í•¨ìˆ˜
-	os << name << endl;
-	os << age << endl;
-	os << sex << endl;
+	for (string t : team)
+	{
+			cout << t << ' ';
+	}
+		cout << endl;
+
+		list<string> ref = { "»óÇÑ¿ìÀ¯", "½Ì½Ì¿ìÀ¯" };
+		ref.pop_front();
+
+		for (string m : ref)
+		{
+			cout << m << ' ';
+		}
+		cout << endl;
+
+		list<string> rank = { "¹Ú½ºÅ°", "¼Û½ºÅ°", "±è½ºÅ°", "Á¤½ºÅ°" };
+		rank.pop_back();
+		for (string r : rank)
+		{
+			cout << r << ' ';
+		}
+		cout << endl;
+
+		map<int, string> phone;
+		phone.insert(make_pair(1, "¾ö¸¶"));
+		phone.insert(make_pair(2, "¾Æºü"));
+		phone.insert(make_pair(3, "Ä£±¸"));
+		phone.insert(make_pair(4, "¿Àºü"));
+
+		for (auto p : phone) {
+			cout << p.first << "¹ø " << p.second << endl;
+		}
 
 	return 0;
 }
+//OOP ÇÙ½É : class ( -> »ó¼Ó)
+				  //object »ı¼º
+//template = generic program
+//°¡»óÇÔ¼ö = Ãß»óÇÔ¼ö
+
+//c++ ±â´É Áß½ÉÀ¸·Î ±¸Çö c++½ÉÈ­ (network¿¡¼­..)
+//c++ ±×·¡ÇÈ Áß½ÉÀ¸·Î ±¸Çö (MFC)
+//c++ À¥ Áß½ÉÀ¸·Î ±¸Çö (c#)
